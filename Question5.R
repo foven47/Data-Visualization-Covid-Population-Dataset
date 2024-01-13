@@ -23,16 +23,18 @@ population_data$age <- as.factor(population_data$age)
 population_data$state <- as.factor(population_data$state)
 population_data$ethnicity <- as.factor(population_data$ethnicity)
 
-#convert 'date' to datatype
+#convert 'date' to datatype 
 population_data$date <- as.Date(population_data$date)
 
 #filter data to remove overall_ethnicity
 population_data_filtered <- subset(population_data, !(ethnicity=="overall_ethnicity"))
 summary(population_data_filtered)
 
-# Create new variables for overall categories
-population_data_overall_sex <- population_data_filtered[population_data_filtered$sex == "overall_sex", ]
-population_data_overall_age <- population_data_filtered[population_data_filtered$age == "overall_age", ]
+
+population_data_filtered <- population_data_filtered[population_data_filtered$sex == "overall_sex" & population_data_filtered$age == "overall_age",]
+
+# Group by year,state,ethnicity and population
+population_data_filtered <- summarise(group_by(population_data_filtered, year = format(date, "%Y"), state, ethnicity, population ))
 
 # Aggregate the data with overall categories
 new_population_overall <- aggregate(cbind(population_data_filtered$population) ~

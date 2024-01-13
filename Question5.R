@@ -30,11 +30,13 @@ population_data$date <- as.Date(population_data$date)
 population_data_filtered <- subset(population_data, !(ethnicity=="overall_ethnicity"))
 summary(population_data_filtered)
 
-
+#filter data to take only row with overall_sex and overall_age
 population_data_filtered <- population_data_filtered[population_data_filtered$sex == "overall_sex" & population_data_filtered$age == "overall_age",]
 
-# Group by year,state,ethnicity and population
-population_data_filtered <- summarise(group_by(population_data_filtered, year = format(date, "%Y"), state, ethnicity, population ))
+# Group by year and ethnicity and sum the population of all state based on ethincity
+population_data_filtered <- summarise(group_by(population_data_filtered, year = format(date, "%Y"), ethnicity ),
+                                      , population = sum(population))
+
 
 # Aggregate the data with overall categories
 new_population_overall <- aggregate(cbind(population_data_filtered$population) ~

@@ -1,5 +1,4 @@
-#install library ggplot2 to visualize data
-install.packages("ggplot2")
+
 library(ggplot2)
 
 setwd("C:/Users/hazira/Desktop/assignment2_351")
@@ -30,6 +29,16 @@ population_data$date <- as.Date(population_data$date)
 #filter data to remove overall_ethnicity
 population_data_filtered <- subset(population_data, !(ethnicity=="overall_ethnicity"))
 summary(population_data_filtered)
+
+# Create new variables for overall categories
+population_data_overall_sex <- population_data_filtered[population_data_filtered$sex == "overall_sex", ]
+population_data_overall_age <- population_data_filtered[population_data_filtered$age == "overall_age", ]
+
+# Aggregate the data with overall categories
+new_population_overall <- aggregate(cbind(population_data_filtered$population) ~
+                                      population_data_overall_sex +
+                                      population_data_overall_age ,
+                                    data = population_data_filtered, FUN = sum)
 
 # Filter data for year 2020
 ethnicity_composition_20 <- population_data_filtered[format((population_data_filtered$date),"%Y") == "2020",]

@@ -54,6 +54,7 @@ ggplot(ethnicity_composition_20, aes(y = population, x = "", fill = ethnicity)) 
   labs(title = "Ethnicity Composition in year 2020",
        x = NULL,
        y = NULL, fill = NULL) +
+  guides(fill=guide_legend(title = "Ethnicity"))+
   theme_minimal() +
   theme(axis.line = element_blank(),
         axis.text = element_blank(),
@@ -67,6 +68,7 @@ ggplot(ethnicity_composition_21, aes(y = population, x = "", fill = ethnicity)) 
   labs(title = "Ethnicity Composition in year 2021",
        x = NULL,
        y = NULL, fill = NULL) +
+  guides(fill=guide_legend(title = "Ethnicity"))+
   theme_minimal() +
   theme(axis.line = element_blank(),
         axis.text = element_blank(),
@@ -80,6 +82,7 @@ ggplot(ethnicity_composition_22, aes(y = population, x = "", fill = ethnicity)) 
   labs(title = "Ethnicity Composition in year 2022",
        x = NULL,
        y = NULL, fill = NULL) +
+  guides(fill=guide_legend(title = "Ethnicity"))+
   theme_minimal() +
   theme(axis.line = element_blank(),
         axis.text = element_blank(),
@@ -93,6 +96,7 @@ ggplot(ethnicity_composition_23, aes(y = population, x = "", fill = ethnicity)) 
   labs(title = "Ethnicity Composition in year 2023",
        x = NULL,
        y = NULL, fill = NULL) +
+  guides(fill=guide_legend(title = "Ethnicity"))+
   theme_minimal() +
   theme(axis.line = element_blank(),
         axis.text = element_blank(),

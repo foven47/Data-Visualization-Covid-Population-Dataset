@@ -46,6 +46,7 @@ ggplot(new_covid_Malaysia_20_23, aes(x="", y=value, fill=age_group)) +
   coord_polar("y", start=0) +
   geom_text(aes(label = scales::percent(value / sum(value))), position = position_stack(vjust=0.5)) +
   labs(title = "COVID-19 Cases of Child+Adloescent and Adult in Malaysia (2020-2023)", x = NULL, y = NULL, fill = NULL) +
+  guides(fill=guide_legend(title = "Age Group"))+
   theme_classic() +
   theme(axis.line = element_blank(),
         axis.text = element_blank(),

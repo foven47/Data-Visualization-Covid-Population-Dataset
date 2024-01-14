@@ -46,70 +46,54 @@ ethnicity_composition_22 <- population_data_filtered[population_data_filtered$ye
 # Filter data for year 2023
 ethnicity_composition_23 <- population_data_filtered[population_data_filtered$year == "2023", ]
 
-# Create a bar plot for year 2020
-ggplot(ethnicity_composition_20, aes(y = population, x = ethnicity, fill = ethnicity)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.7)+
-  geom_text(
-    aes(label = population),
-    position = position_dodge(width = 1),
-    vjust = -0.5,
-    angle = 0,
-    size = 3,
-    hjust = 0.5
-  ) +
-  labs(title = paste("Ethnicity Composition in year 2020"),
-       x = "Ethnicity",
-       y = "Population ('000)") +
+#-------------------Create a pie chart for year 2020-------------------------------------
+ggplot(ethnicity_composition_20, aes(y = population, x = "", fill = ethnicity)) +
+  geom_bar(stat = "identity",width = 1)+
+  coord_polar("y", start=0) +
+  geom_text(aes(label = scales::percent(population / sum(population))), position = position_stack(vjust=0.5)) +
+  labs(title = "Ethnicity Composition in year 2020",
+       x = NULL,
+       y = NULL, fill = NULL) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 40, hjust = 1))
+  theme(axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
 
-# Create a bar plot for year 2021
-ggplot(ethnicity_composition_21, aes(y = population, x = ethnicity, fill = ethnicity)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.7)+
-  geom_text(
-    aes(label = population),
-    position = position_dodge(width = 1),
-    vjust = -0.5,
-    angle = 0,
-    size = 3,
-    hjust = 0.5
-  ) +
-  labs(title = paste("Ethnicity Composition in year 2021"),
-       x = "Ethnicity",
-       y = "Population ('000)") +
+#---------------------------Create a pie chart for year 2021---------------------------------
+ggplot(ethnicity_composition_21, aes(y = population, x = "", fill = ethnicity)) +
+  geom_bar(stat = "identity",width = 1)+
+  coord_polar("y", start=0) +
+  geom_text(aes(label = scales::percent(population / sum(population))), position = position_stack(vjust=0.5)) +
+  labs(title = "Ethnicity Composition in year 2021",
+       x = NULL,
+       y = NULL, fill = NULL) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 40, hjust = 1))
+  theme(axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
 
-# Create a bar plot for year 2022
-ggplot(ethnicity_composition_22, aes(y = population, x = ethnicity, fill = ethnicity)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.7)+
-  geom_text(
-    aes(label = population),
-    position = position_dodge(width = 1),
-    vjust = -0.5,
-    angle = 0,
-    size = 3,
-    hjust = 0.5
-  ) +
-  labs(title = paste("Ethnicity Composition in year 2022"),
-       x = "Ethnicity",
-       y = "Population ('000)") +
+#---------------------------Create a pie chart for year 2022---------------------------------
+ggplot(ethnicity_composition_22, aes(y = population, x = "", fill = ethnicity)) +
+  geom_bar(stat = "identity",width = 1)+
+  coord_polar("y", start=0) +
+  geom_text(aes(label = scales::percent(population / sum(population))), position = position_stack(vjust=0.5)) +
+  labs(title = "Ethnicity Composition in year 2022",
+       x = NULL,
+       y = NULL, fill = NULL) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 40, hjust = 1))
+  theme(axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
 
-# Create a bar plot for year 2023
-ggplot(ethnicity_composition_23, aes(y = population, x = ethnicity, fill = ethnicity)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.7)+
-  geom_text(
-    aes(label = population),
-    position = position_dodge(width = 1),
-    vjust = -0.5,
-    angle = 0,
-    size = 3,
-    hjust = 0.5
-  ) +
-  labs(title = paste("Ethnicity Composition in year 2023"),
-       x = "Ethnicity",
-       y = "Population ('000)") +
+#---------------------------Create a pie chart for year 2023---------------------------------
+ggplot(ethnicity_composition_23, aes(y = population, x = "", fill = ethnicity)) +
+  geom_bar(stat = "identity",width = 1)+
+  coord_polar("y", start=0) +
+  geom_text(aes(label = scales::percent(population / sum(population))), position = position_stack(vjust=0.5)) +
+  labs(title = "Ethnicity Composition in year 2023",
+       x = NULL,
+       y = NULL, fill = NULL) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 40, hjust = 1))
+  theme(axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank())

@@ -3,11 +3,30 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
+<<<<<<< Updated upstream
 #set working directory (insert your working directory here)
 setwd("")
 
 #load cs file
 population_state <- read.csv("population_state.csv")
+=======
+# Data preprocessing and cleaning
+# Get first 6 row of data
+head(population_state)
+# Summary of the data
+summary(population_state)
+# Check for missing values
+sum(is.na(population_state))
+# Check for duplicated rows
+population_state[duplicated(population_state),]
+# Factor the character type
+population_state$sex <- as.factor(population_state$sex)
+population_state$age <- as.factor(population_state$age)
+population_state$state <- as.factor(population_state$state)
+population_state$ethnicity <- as.factor(population_state$ethnicity)
+# Convert 'date' to datatype
+population_state$date <- as.Date(population_state$date)
+>>>>>>> Stashed changes
 
 # Filter out unnecessary rows (e.g., overall_sex, overall_ethnicity)
 clean_data <- population_state %>%

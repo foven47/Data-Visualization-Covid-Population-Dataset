@@ -9,8 +9,21 @@ setwd("")
 population_state <- read.csv("population_state.csv")
 
 # Data preprocessing and cleaning
-clean_data <- population_state %>%
-  filter(sex == "female", age %in% c("15-19", "20-24", "25-29"))
+# Get first 6 row of data
+head(population_state)
+# Summary of the data
+summary(population_state)
+# Check for missing values
+sum(is.na(population_state))
+# Check for duplicated rows
+population_state[duplicated(population_state),]
+# Factor the character type
+population_state$sex <- as.factor(population_state$sex)
+population_state$age <- as.factor(population_state$age)
+population_state$state <- as.factor(population_state$state)
+population_state$ethnicity <- as.factor(population_state$ethnicity)
+# Convert 'date' to datatype
+population_state$date <- as.Date(population_state$date)
 
 # Aggregate data by state to get the total population of females in the specified age range
 agg_data <- clean_data %>%

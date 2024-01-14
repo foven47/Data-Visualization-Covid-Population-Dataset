@@ -1,15 +1,24 @@
 library(ggplot2)
 
+<<<<<<< Updated upstream
 #set working directory (your working directory here)
 setwd("")
 #load csv file
 covid_cases_age <- read.csv("covid_cases_age.csv")
+=======
+# Check for missing values
+sum(is.na(covid_cases_age))
+
+# Data cleaning
+# Check for duplicate rows
+covid_cases_age[duplicated(covid_cases_age),]
+>>>>>>> Stashed changes
 
 # Convert the 'date' column to Date type
 covid_cases_age$date <- as.Date(covid_cases_age$date)
 
-# Take out the year from the 'date' column
-covid_cases_age$year <- as.numeric(format(covid_cases_age$date, "%Y"))
+# Factor state
+covid_cases_age$date <- as.factor(covid_cases_age$date)
 
 # Calculate the total cases for each state by year
 totalcases <- aggregate(. ~ state + year, data = covid_cases_age, sum)

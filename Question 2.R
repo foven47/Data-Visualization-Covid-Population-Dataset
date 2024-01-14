@@ -2,6 +2,12 @@ library(readxl)
 library(dplyr)
 library(ggplot2)
 
+#set working directory (insert your working directory here)
+setwd("")
+
+#load cs file
+population_state <- read.csv("population_state.csv")
+
 # Data preprocessing and cleaning
 clean_data <- population_state %>%
   filter(sex == "female", age %in% c("15-19", "20-24", "25-29"))

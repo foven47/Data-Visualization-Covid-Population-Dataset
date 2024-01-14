@@ -1,5 +1,10 @@
 library(ggplot2)
 
+#set working directory (your working directory here)
+setwd("")
+#load csv file
+covid_cases_age <- read.csv("covid_cases_age.csv")
+
 # Convert the 'date' column to Date type
 covid_cases_age$date <- as.Date(covid_cases_age$date)
 

@@ -3,6 +3,12 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
+#set working directory (insert your working directory here)
+setwd("")
+
+#load cs file
+population_state <- read.csv("population_state.csv")
+
 # Filter out unnecessary rows (e.g., overall_sex, overall_ethnicity)
 clean_data <- population_state %>%
   filter(!grepl("overall", sex) & !grepl("overall", ethnicity) & age != "overall_age")

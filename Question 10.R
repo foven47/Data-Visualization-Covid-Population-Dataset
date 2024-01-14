@@ -1,18 +1,15 @@
 library(ggplot2)
 
-<<<<<<< Updated upstream
 #set working directory (your working directory here)
 setwd("")
 #load csv file
 covid_cases_age <- read.csv("covid_cases_age.csv")
-=======
 # Check for missing values
 sum(is.na(covid_cases_age))
 
 # Data cleaning
 # Check for duplicate rows
 covid_cases_age[duplicated(covid_cases_age),]
->>>>>>> Stashed changes
 
 # Convert the 'date' column to Date type
 covid_cases_age$date <- as.Date(covid_cases_age$date)
